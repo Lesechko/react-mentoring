@@ -1,0 +1,21 @@
+.genre {
+  list-style: none;
+  margin-right: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.genre.active::after{
+  content: '';
+	height: 3px;
+	width: 130%;
+	position: absolute;
+  background: #F65261;
+	bottom: -38px;
+  z-index: 1000;
+  left: -18%;
+}
+
+.genreList {
+  display: flex;
+}
