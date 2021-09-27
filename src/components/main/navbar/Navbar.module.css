@@ -1,0 +1,28 @@
+.navbar {
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+}
+
+.line {
+	height: 4px;
+	background: #424242;
+	position: relative;
+}
+
+.line:after {
+	content: '';
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	background: #000;
+	top: 2px;
+}
+
+.wrapper {
+	width: 1240px;
+	margin: 0 auto;
+	max-width: 100%;
+}

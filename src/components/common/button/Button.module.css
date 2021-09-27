@@ -1,0 +1,27 @@
+.btn-transperent {
+	background: rgba(96, 96, 96, 0.68);
+	color: #f65261;
+	padding: 10px 15px;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	display: inline-block;
+	cursor: pointer;
+	user-select:none
+}
+
+.btn-complete {
+	background: #f65261;
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	padding: 16px 50px;
+	display: inline-block;
+	cursor: pointer;
+	user-select:none
+}
