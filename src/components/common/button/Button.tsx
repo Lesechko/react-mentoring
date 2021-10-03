@@ -8,7 +8,7 @@ interface IButton {
 	onClick: () => void;
 }
 
-function Button(props: IButton): ReactElement {
+const Button = (props: IButton): ReactElement => {
 	const className =
 		props.type === BUTTON_TYPES.COMPLETE ? 'btn-complete' : 'btn-transperent';
 	return (
@@ -16,6 +16,6 @@ function Button(props: IButton): ReactElement {
 			{props.children}
 		</span>
 	);
-}
+};
 
 export default Button;

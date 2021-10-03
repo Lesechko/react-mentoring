@@ -1,7 +1,8 @@
 import {Button} from '..';
-import styles from './Search.module.css';
 import {BUTTON_TYPES} from '../button';
-import React, {useState} from 'react';
+import {ReactElement, useState} from 'react';
+
+import styles from './Search.module.css';
 
 interface ISearch {
 	onSearch(string: string): void;
@@ -9,7 +10,7 @@ interface ISearch {
 	actionName: string;
 }
 
-function Search(props: ISearch) {
+const Search = (props: ISearch): ReactElement => {
 	const [value, setValue] = useState('');
 
 	const onSearch = () => {
@@ -29,6 +30,6 @@ function Search(props: ISearch) {
 			</Button>
 		</div>
 	);
-}
+};
 
 export default Search;

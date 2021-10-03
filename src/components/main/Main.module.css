@@ -1,3 +1,22 @@
 .main {
-  background: #232323;
+	background: #232323;
+	min-height: 970px;
+	flex: 1 1;
+}
+
+.container {
+	width: 1240px;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+.movies-counter {
+  font-weight: 100;
+	margin-top: 20px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.movies-counter .number {
+	font-weight: 600;
 }
