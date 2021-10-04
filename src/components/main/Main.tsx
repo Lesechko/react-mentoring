@@ -4,11 +4,14 @@ import {GenresToggle, MovieListItems} from '../../state/state';
 import MovieList from '../movieList/MovieList';
 
 import styles from './Main.module.css';
+import {getSortedMovies, SortingType} from '../../utils/sortingUtils';
+import {IMovie} from '../movieList/movie/Movie';
 
 const Main = (): ReactElement => {
 	const [genres, setGenres] = useState(GenresToggle);
+	const [sortId, setSortId] = useState(null);
 	const [activeGenresId, setActiveGenresId] = useState(null);
-	const [movies, setMovies] = useState<any[]>([]);
+	const [movies, setMovies] = useState<IMovie[]>([]);
 
 	useEffect(() => {
 		const activeMovieList = activeGenresId
@@ -27,10 +30,18 @@ const Main = (): ReactElement => {
 		setActiveGenresId(updateGenres.find((genre) => genre.active)?.id);
 	};
 
+	const onSortChange = (id: number, sortingType: SortingType) => {
+		setMovies((movies) => getSortedMovies(movies, id, sortingType));
+	};
+
 	return (
 		<div className={styles.main}>
 			<div className={styles.container}>
-				<Navbar genres={genres} onGenreClick={onGenreClick} />
+				<Navbar
+					genres={genres}
+					onGenreClick={onGenreClick}
+					onSortChange={onSortChange}
+				/>
 				<div className={styles['movies-counter']}>
 					<span className={styles['number']}>{movies.length}</span> movies found
 				</div>
