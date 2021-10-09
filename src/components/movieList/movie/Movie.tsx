@@ -8,6 +8,8 @@ export interface IMovie {
 	genreId: number[];
 	year: number;
 	img: string;
+	runtime? : number;
+	rating? : number
 }
 
 const Movie = ({name, img, year}: IMovie): ReactElement => {

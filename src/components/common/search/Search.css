@@ -21,3 +21,7 @@
 	opacity: 0.7;
 	color: #ffffff;
 }
+
+.search {
+	display: flex;
+}
