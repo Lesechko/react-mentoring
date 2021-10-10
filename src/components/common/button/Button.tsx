@@ -9,11 +9,7 @@ interface IButton {
 }
 
 const Button = (props: IButton): ReactElement => {
-  const className = `${styles.btn} ${
-    props.type === BUTTON_TYPES.COMPLETE
-      ? styles['btn-complete']
-      : styles['btn-transperent']
-  }`
+  const className = `${styles.btn} ${styles[`btn-${props.type}`]}`
   return (
     <span className={className} onClick={props.onClick}>
       {props.children}

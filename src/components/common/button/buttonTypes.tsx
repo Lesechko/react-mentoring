@@ -1,4 +1,5 @@
 export enum BUTTON_TYPES {
-  COMPLETE = "COMPLETE",
-	TRANSPARENT = 'TRANSPARENT',
-};
+  COMPLETE = 'complete',
+  TRANSPARENT = 'transparent',
+  NONE = 'none',
+}

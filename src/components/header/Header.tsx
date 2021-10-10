@@ -1,24 +1,42 @@
-import { ReactElement, useState } from 'react'
+import { ReactElement, useContext, useState } from 'react'
 import { Modal } from '../common'
 import { Button, BUTTON_TYPES } from '../common/button'
 import { Logo } from '../common/logo'
 import { Search } from '../common/search'
+import { IMovie } from '../movieList/movie/Movie'
+import { MovieContext } from '../../contexts/movieContext'
 import styles from './Header.module.css'
+import { addMovies, setActiveMovie } from '../../state/actions'
+import { MovieInfo } from '../movieInfo/MovieInfo'
 
 const Header = (): ReactElement => {
   const [formOpen, setFormOpen] = useState(false)
+  const [state, dispatch] = useContext(MovieContext)
 
   const onSearch = (searchTxt: string) => {
     console.log(searchTxt)
   }
 
-  const onAddClick = () => {
-    setFormOpen(true)
-  }
+  const onAddClick = () => setFormOpen(true)
 
-  return (
+  const onAddMovie = (movie: IMovie) => {
+    setFormOpen(false)
+    dispatch(addMovies(movie))}
+
+  return state.activeMovie ? (
     <>
-      <Modal open={formOpen} onClose={() => setFormOpen(false)} />
+      <MovieInfo
+        movie={state.activeMovie}
+        onClose={() => dispatch(setActiveMovie(null))}
+      ></MovieInfo>
+    </>
+  ) : (
+    <>
+      <Modal
+        open={formOpen}
+        onClose={() => setFormOpen(false)}
+        onSubmit={onAddMovie}
+      />
       <header className={styles.header}>
         <div className={styles.wrapper}>
           <div className={styles.top}>
