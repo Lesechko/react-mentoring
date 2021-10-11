@@ -9,23 +9,23 @@ interface ISearch {
   actionName: string
 }
 
-const Search = (props: ISearch): ReactElement => {
+const Search = ({
+  onSearch,
+  placeholder,
+  actionName,
+}: ISearch): ReactElement => {
   const [value, setValue] = useState('')
-
-  const onSearch = () => {
-    props.onSearch(value)
-  }
 
   return (
     <div className={styles.search}>
       <input
-        placeholder={props.placeholder}
+        placeholder={placeholder}
         className={styles.input}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Button type={BUTTON_TYPES.COMPLETE} onClick={onSearch}>
-        {props.actionName}
+      <Button type={BUTTON_TYPES.COMPLETE} onClick={() => onSearch(value)}>
+        {actionName}
       </Button>
     </div>
   )

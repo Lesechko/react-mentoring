@@ -8,11 +8,11 @@ interface IButton {
   onClick: () => void
 }
 
-const Button = (props: IButton): ReactElement => {
-  const className = `${styles.btn} ${styles[`btn-${props.type}`]}`
+const Button = ({type, onClick, children}: IButton): ReactElement => {
+  const className = `${styles.btn} ${styles[`btn-${type}`]}`
   return (
-    <span className={className} onClick={props.onClick}>
-      {props.children}
+    <span className={className} onClick={onClick}>
+      {children}
     </span>
   )
 }

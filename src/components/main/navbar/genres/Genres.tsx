@@ -7,13 +7,13 @@ interface IGenres {
 	onGenreClick: (id : number) => void;
 }
 
-function Genres(props: IGenres): ReactElement {	
+function Genres({genreList, onGenreClick}: IGenres): ReactElement {	
 	return (
 		<ul className={styles.genreList}>
-			{props.genreList.map((item) => (
+			{genreList.map((item) => (
 				<li
 					key={item.id}
-					onClick={props.onGenreClick.bind(this, item.id)}
+					onClick={onGenreClick.bind(this, item.id)}
 					className={`${styles.genre} ${item.active ? styles.active : ''}`}
 				>
 					{item.title}
