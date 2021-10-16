@@ -5,25 +5,31 @@ export interface IMovie {
 	id: string;
 	name: string;
 	genre: string;
-	genreId: number[];
-	year: number;
+	release: number;
 	img: string;
+	genreId?: number[];
 	runtime? : number;
 	rating? : number
+	overview?: string
 }
 
-const Movie = ({name, img, year}: IMovie): ReactElement => {
+export interface IMovieProps {
+	movie : IMovie,
+	onClick : (movie : IMovie) => void;
+}
+
+const Movie = ({movie, onClick}: IMovieProps): ReactElement => {
 	return (
-		<div className={styles.movie}>
+		<div className={styles.movie} onClick = {() => onClick(movie)}>
 			<div className={styles.imgWrapper}>
-				<img src={img} alt={name} className={styles.img}></img>
+				<img src={movie.img} alt={movie.name} className={styles.img}></img>
 			</div>
 			<div className={styles.content}>
 				<div className={styles.discription}>
-					<div className={styles.title}>{name}</div>
-					<div className={styles.genre}>{name}</div>
+					<div className={styles.title}>{movie.name}</div>
+					<div className={styles.genre}>{movie.name}</div>
 				</div>
-				<div className={styles.year}>{year}</div>
+				<div className={styles.year}>{movie.release}</div>
 			</div>
 		</div>
 	);

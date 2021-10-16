@@ -3,19 +3,20 @@ import styles from './Input.css'
 interface IInput {
   type: string
   title: string
+  name : string
 }
 
-const Input = ({ title, type }: IInput) => {
+const Input = ({ title, type, name }: IInput) => {
   return (
     <div className={styles.title}>
-      <label htmlFor="input" className={styles.title}>
+      <label htmlFor={name} className={styles.title}>
         {title.toUpperCase()}
       </label>
 
       {type !== 'textarea' ? (
-        <input name="input" type={type} className={styles.input}></input>
+        <input name={name} type={type} className={styles.input} ></input>
       ) : (
-        <textarea name="input" className={`${styles.input} ${styles.textarea}`}></textarea>
+        <textarea name={name} className={`${styles.input} ${styles.textarea}`}></textarea>
       )}
     </div>
   )
