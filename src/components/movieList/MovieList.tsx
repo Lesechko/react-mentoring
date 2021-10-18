@@ -4,7 +4,7 @@ import styles from './MovieList.module.css'
 
 interface IMovieList {
   list: IMovie[]
-  onMovieClick: (movie: IMovie) => void
+  onMovieClick: (movieId: number) => void
 }
 
 const MovieList = ({ list, onMovieClick }: IMovieList): ReactElement => {

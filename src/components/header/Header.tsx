@@ -4,14 +4,27 @@ import { Button, BUTTON_TYPES } from '../common/button'
 import { Logo } from '../common/logo'
 import { Search } from '../common/search'
 import { IMovie } from '../movieList/movie/Movie'
-import { MovieContext } from '../../contexts/movieContext'
 import styles from './Header.module.css'
-import { addMovies, setActiveMovie } from '../../state/actions'
 import { MovieInfo } from '../movieInfo/MovieInfo'
+import { connect } from 'react-redux'
+import {
+  addMovie,
+  setActiveMovie,
+} from '../../redux/action-creators/actionCreators'
+import { RootState } from '../../redux/reducers'
 
-const Header = (): ReactElement => {
+interface IHeader {
+  activeMovie: IMovie
+  addMovie: (movie: IMovie) => void
+  setActiveMovie: (id: number | null) => void
+}
+
+const Header = ({
+  activeMovie,
+  addMovie,
+  setActiveMovie,
+}: IHeader): ReactElement => {
   const [formOpen, setFormOpen] = useState(false)
-  const [state, dispatch] = useContext(MovieContext)
 
   const onSearch = (searchTxt: string) => {
     console.log(searchTxt)
@@ -21,13 +34,14 @@ const Header = (): ReactElement => {
 
   const onAddMovie = (movie: IMovie) => {
     setFormOpen(false)
-    dispatch(addMovies(movie))}
+    addMovie(movie)
+  }
 
-  return state.activeMovie ? (
+  return activeMovie ? (
     <>
       <MovieInfo
-        movie={state.activeMovie}
-        onClose={() => dispatch(setActiveMovie(null))}
+        movie={activeMovie}
+        onClose={() => setActiveMovie(null)}
       ></MovieInfo>
     </>
   ) : (
@@ -59,4 +73,17 @@ const Header = (): ReactElement => {
   )
 }
 
-export default Header
+function mapStateToProps(state: RootState) {
+  return {
+    activeMovie: state.movies.activeMovie,
+  }
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    addMovie: (movie: IMovie) => dispatch(addMovie(movie)),
+    setActiveMovie: (id: number | null) => dispatch(setActiveMovie(id)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

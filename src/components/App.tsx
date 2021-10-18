@@ -1,31 +1,44 @@
-import { ReactElement, useContext, useReducer } from 'react'
+import { ReactElement, useEffect } from 'react'
 import styles from './App.module.css'
 import Header from './header/Header'
 import Main from './main/Main'
 import Footer from './footer/Footer'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
-import { reducer } from '../state/reducer'
-import MovieList from './movieList/MovieList'
-import { initialState } from '../state/state'
-import { addMovies} from '../state/actions'
-import { IMovie } from './movieList/movie/Movie'
-import {MovieProvider} from '../contexts/movieContext'
+import { useFetch } from '../hooks'
+import { connect } from 'react-redux'
+import { setMovies } from '../redux/action-creators/actionCreators'
 
+function App(props: { setMovies: (payload: any) => void }): ReactElement {
+  const [{ response }, doFetch] = useFetch('/movies')
 
-function App(): ReactElement {  
+  useEffect(() => {
+    doFetch()
+  }, [])
+
+  useEffect(() => {
+    if (!response) {
+      return
+    }
+
+    props.setMovies(response.data)
+  }, [response])
+
   return (
     <ErrorBoundary>
-      <MovieProvider>
-          <div className={styles.app}>
-        <Header/>
+      <div className={styles.app}>
+        <Header />
         <div className={styles.separator} />
         <Main />
         <Footer />
       </div>
-      </MovieProvider>
-    
     </ErrorBoundary>
   )
 }
 
-export default App
+function setDispatchToProps(dispatch: any) {
+  return {
+    setMovies: (payload: any) => dispatch(setMovies(payload)),
+  }
+}
+
+export default connect(null, setDispatchToProps)(App)
