@@ -1,28 +1,35 @@
-import { ReactElement, useContext, useEffect, useState } from 'react'
+import { ReactElement, useMemo, useState } from 'react'
 import { Navbar } from './navbar'
-import { GenresToggle } from '../../state/state'
 import MovieList from '../movieList/MovieList'
 
 import styles from './Main.module.css'
-import { getSortedMovies, SortingType } from '../../utils/sortingUtils'
+import { SortingType } from '../../utils/sortingUtils'
 import { IMovie } from '../movieList/movie/Movie'
-import { MovieContext } from '../../contexts/movieContext'
-import { setActiveMovie } from '../../state/actions'
+import { connect } from 'react-redux'
+import {
+  filterMovie,
+  setActiveMovie,
+  sortMovies,
+} from '../../redux/action-creators/actionCreators'
+import { GenreItems } from './navbar/genres/GenresConstants'
+import { RootState } from '../../redux/reducers'
 
-const Main = (): ReactElement => {
-  const [{ movieList }, dispatch] = useContext(MovieContext)
-  const [genres, setGenres] = useState(GenresToggle)
-  const [activeGenresId, setActiveGenresId] = useState(null)
-  const [movies, setMovies] = useState<IMovie[]>([])
+interface IMain {
+  movies: IMovie[]
+  filteredMovie: IMovie[] | null
+  showMovieInfo: (id: number) => void
+  filterMovie: (genre: string) => void
+  sortMovies: (id: number, direction: SortingType) => void
+}
 
-  useEffect(() => {
-    const activeMovieList = activeGenresId
-      ? movieList.filter((movie: IMovie) =>
-          movie.genreId.includes(activeGenresId),
-        )
-      : movieList
-    setMovies(activeMovieList)
-  }, [movieList, activeGenresId])
+const Main = ({
+  movies = [],
+  filteredMovie,
+  showMovieInfo,
+  filterMovie,
+  sortMovies,
+}: IMain): ReactElement => {
+  const [genres, setGenres] = useState(GenreItems)
 
   const onGenreClick = (id: number) => {
     const updateGenres = genres.map((item) => ({
@@ -31,16 +38,17 @@ const Main = (): ReactElement => {
     }))
 
     setGenres(updateGenres)
-    setActiveGenresId(updateGenres.find((genre) => genre.active)?.id)
+    filterMovie(updateGenres.find((genre) => genre.active)?.value)
   }
 
   const onSortChange = (id: number, sortingType: SortingType) => {
-    setMovies((movies) => getSortedMovies(movies, id, sortingType))
+    sortMovies(id, sortingType)
   }
 
-  const onOpenMovieDetail = (movie: IMovie) => {
-    dispatch(setActiveMovie(movie))
-  }
+  const moviesCount = useMemo(
+    () => (filteredMovie ? filteredMovie.length : movies.length),
+    [movies.length, filteredMovie],
+  )
 
   return (
     <div className={styles.main}>
@@ -51,12 +59,31 @@ const Main = (): ReactElement => {
           onSortChange={onSortChange}
         />
         <div className={styles['movies-counter']}>
-          <span className={styles['number']}>{movies.length}</span> movies found
+          <span className={styles['number']}>{moviesCount}</span> movies found
         </div>
-        <MovieList list={movies} onMovieClick={onOpenMovieDetail}></MovieList>
+        <MovieList
+          list={filteredMovie || movies}
+          onMovieClick={showMovieInfo}
+        ></MovieList>
       </div>
     </div>
   )
 }
 
-export default Main
+function mapStateToProps(state: RootState) {
+  return {
+    movies: state.movies.movieList,
+    filteredMovie: state.movies.filteredMovie,
+  }
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    showMovieInfo: (id: number) => dispatch(setActiveMovie(id)),
+    filterMovie: (genre: string) => dispatch(filterMovie(genre)),
+    sortMovies: (id: number, direction: SortingType) =>
+      dispatch(sortMovies(id, direction)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
