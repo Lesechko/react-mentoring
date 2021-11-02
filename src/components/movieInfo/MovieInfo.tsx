@@ -1,4 +1,4 @@
-import { Button, BUTTON_TYPES, Logo } from '../common'
+import { Button, BUTTON_STYLE, Logo } from '../common'
 import { IMovie } from '../movieList/movie/Movie'
 import styles from './MovieInfo.css'
 
@@ -9,14 +9,17 @@ interface IMovieInfo {
 
 export const MovieInfo = ({ movie, onClose }: IMovieInfo) => {
   const options = { year: 'numeric', month: 'long', day: 'numeric' }
-  const date = new Date(movie.release_date).toLocaleDateString('en-US', options)
+  const date = new Date(movie.release_date).toLocaleDateString(
+    'en-US',
+    options as any,
+  )
 
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.top}>
           <Logo />
-          <Button type={BUTTON_TYPES.NONE} onClick={onClose}>
+          <Button style={BUTTON_STYLE.NONE} onClick={onClose}>
             --O
           </Button>
         </div>

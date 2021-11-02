@@ -1,19 +1,25 @@
 import styles from './Button.module.css'
 import { ReactElement, ReactNode } from 'react'
-import { BUTTON_TYPES } from './buttonTypes'
+import { BUTTON_TYPE, BUTTON_STYLE } from './buttonTypes'
 
 interface IButton {
-  type: BUTTON_TYPES
+  style: BUTTON_STYLE
   children: ReactNode
-  onClick: () => void
+  type?: BUTTON_TYPE
+  onClick?: () => void
 }
 
-const Button = ({type, onClick, children}: IButton): ReactElement => {
-  const className = `${styles.btn} ${styles[`btn-${type}`]}`
+const Button = ({
+  type = BUTTON_TYPE.DEFAULT,
+  onClick,
+  children,
+  style = BUTTON_STYLE.COMPLETE,
+}: IButton): ReactElement => {
+  const className = `${styles.btn} ${styles[`btn-${style}`]}`
   return (
-    <span className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} type={type}>
       {children}
-    </span>
+    </button>
   )
 }
 

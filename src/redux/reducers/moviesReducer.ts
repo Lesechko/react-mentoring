@@ -21,6 +21,8 @@ export default function moviesReducer(
 ) {
   switch (action.type) {
     case ActionType.SET_MOVIES:
+    case ActionType.ADD_MOVIE:
+    case ActionType.DELETE_MOVIE:
       return {
         ...state,
         movieList: action.payload,
@@ -30,9 +32,12 @@ export default function moviesReducer(
         ...state,
         activeMovie: state.movieList.find((m) => m.id === action.payload),
       }
-    case ActionType.ADD_MOVIE:
+    case ActionType.EDIT_MOVIE:
       return {
         ...state,
+        movieList: state.movieList.map((m) =>
+          m.id === action.payload.id ? action.payload : m,
+        ),
       }
     case ActionType.FILTER_MOVIES:
       return {

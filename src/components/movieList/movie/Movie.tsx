@@ -1,18 +1,18 @@
-import { ReactElement } from 'react'
+import { ReactElement, useMemo, useRef } from 'react'
 import styles from './Movie.module.css'
 export interface IMovie {
-  budget: number
   genres: string[]
-  id: number
   overview: string
   poster_path: string
   release_date: string
-  revenue: number
   runtime: number
-  tagline: string
   title: string
   vote_average: number
-  vote_count: number
+  vote_count?: number
+  tagline?: string
+  revenue?: number
+  budget?: number
+  id?: number
 }
 
 export interface IMovieProps {
@@ -21,18 +21,27 @@ export interface IMovieProps {
 }
 
 const Movie = ({ movie, onClick }: IMovieProps): ReactElement => {
-  const year = new Date(movie.release_date).getFullYear()
+  const year = useMemo(
+    () => new Date(movie.release_date).getFullYear(),
+    [movie.release_date],
+  )
+
   return (
-    <div className={styles.movie} onClick={() => onClick(movie.id)}>
+    <div
+      data-movie={movie.id}
+      className={styles.movie}
+      onClick={() => onClick(movie.id)}
+    >
       <div className={styles.imgWrapper}>
         <img
           src={movie.poster_path}
           alt={movie.title}
           className={styles.img}
+          data-movie={movie.id}
         ></img>
       </div>
       <div className={styles.content}>
-        <div className={styles.discription}>
+        <div className={styles.discription} data-movie={movie.id}>
           <div className={styles.title}>{movie.title}</div>
           <div className={styles.genre}>{movie.genres.join(' ')}</div>
         </div>

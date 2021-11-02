@@ -1,4 +1,4 @@
-import { Button, BUTTON_TYPES } from '../button'
+import { Button, BUTTON_STYLE } from '../button'
 import { ReactElement, useState } from 'react'
 
 import styles from './Search.css'
@@ -24,7 +24,7 @@ const Search = ({
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Button type={BUTTON_TYPES.COMPLETE} onClick={() => onSearch(value)}>
+      <Button style={BUTTON_STYLE.COMPLETE} onClick={() => onSearch(value)}>
         {actionName}
       </Button>
     </div>
