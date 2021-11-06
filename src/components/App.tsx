@@ -1,44 +1,76 @@
-import { ReactElement, useEffect } from 'react'
-import styles from './App.module.css'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import Header from './header/Header'
 import Main from './main/Main'
 import Footer from './footer/Footer'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
-import { useFetch } from '../hooks'
+import { useMovieApi } from '../hooks'
 import { connect } from 'react-redux'
-import { setMovies } from '../redux/action-creators/actionCreators'
+import { IMovie } from './movieList/movie/Movie'
+import Modal, { IMovieForm } from './common/modal/Modal'
+import { getNewMovieTemplate } from './movieList/Movie.utils'
+import { RootState } from '../redux/reducers'
 
-function App(props: { setMovies: (payload: any) => void }): ReactElement {
-  const [{ response }, doFetch] = useFetch('/movies')
+import styles from './App.module.css'
+
+interface IApp {
+  movies: IMovie[]
+}
+
+function App({ movies }: IApp): ReactElement {
+  const [data, service] = useMovieApi()
+  const [formOpen, setFormOpen] = useState(false)
+  const formInitialData = useRef({})
 
   useEffect(() => {
-    doFetch()
+    service.GET()
   }, [])
 
-  useEffect(() => {
-    if (!response) {
-      return
-    }
+  const onAddMovie = () => {
+    formInitialData.current = {}
+    setFormOpen(true)
+  }
 
-    props.setMovies(response.data)
-  }, [response])
+  const onEdit = (movieId: number) => {
+    const editedMovie = movies.find((m) => m.id === movieId)
+    formInitialData.current = editedMovie
+
+    setFormOpen(true)
+  }
+
+  const onDelete = (id: number) => {
+    service.DELETE(id)
+  }
+
+  const onSubmitModal = (movie: IMovieForm) => {
+    setFormOpen(false)
+    const updatedMovie = getNewMovieTemplate(movie)
+    movie.id ? service.EDIT(updatedMovie) : service.ADD(updatedMovie)
+  }
 
   return (
     <ErrorBoundary>
-      <div className={styles.app}>
-        <Header />
-        <div className={styles.separator} />
-        <Main />
-        <Footer />
-      </div>
+      <>
+        <Modal
+          open={formOpen}
+          initialData={formInitialData.current}
+          onClose={() => setFormOpen(false)}
+          onSubmit={onSubmitModal}
+        />
+        <div className={styles.app}>
+          <Header addMovie={onAddMovie} />
+          <div className={styles.separator} />
+          <Main onEdit={onEdit} onDelete={onDelete} />
+          <Footer />
+        </div>
+      </>
     </ErrorBoundary>
   )
 }
 
-function setDispatchToProps(dispatch: any) {
+function mapStateToProps(state: RootState) {
   return {
-    setMovies: (payload: any) => dispatch(setMovies(payload)),
+    movies: state.movies.movieList,
   }
 }
 
-export default connect(null, setDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

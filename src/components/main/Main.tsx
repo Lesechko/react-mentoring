@@ -1,8 +1,6 @@
 import { ReactElement, useMemo, useState } from 'react'
 import { Navbar } from './navbar'
 import MovieList from '../movieList/MovieList'
-
-import styles from './Main.module.css'
 import { SortingType } from '../../utils/sortingUtils'
 import { IMovie } from '../movieList/movie/Movie'
 import { connect } from 'react-redux'
@@ -14,9 +12,12 @@ import {
 import { GenreItems } from './navbar/genres/GenresConstants'
 import { RootState } from '../../redux/reducers'
 
+import styles from './Main.module.css'
 interface IMain {
   movies: IMovie[]
   filteredMovie: IMovie[] | null
+  onDelete: (id: number) => void
+  onEdit: (id: number) => void
   showMovieInfo: (id: number) => void
   filterMovie: (genre: string) => void
   sortMovies: (id: number, direction: SortingType) => void
@@ -28,6 +29,8 @@ const Main = ({
   showMovieInfo,
   filterMovie,
   sortMovies,
+  onDelete,
+  onEdit,
 }: IMain): ReactElement => {
   const [genres, setGenres] = useState(GenreItems)
 
@@ -62,6 +65,8 @@ const Main = ({
           <span className={styles['number']}>{moviesCount}</span> movies found
         </div>
         <MovieList
+          onEdit={onEdit}
+          onDelete={onDelete}
           list={filteredMovie || movies}
           onMovieClick={showMovieInfo}
         ></MovieList>

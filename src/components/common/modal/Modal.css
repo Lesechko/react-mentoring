@@ -2,18 +2,20 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  display: none;
-  justify-content:center;
+  justify-content: center;
   overflow: hidden;
   position: absolute;
   z-index: 2000;
+  display: flex;
+  align-self: center;
+  display: flex;
 }
 
 .modal {
   flex-direction: column;
   margin-top: 100px;
   display: flex;
-   position: relative; 
+  position: relative;
   height: 600px;
   width: 900px;
   background: #232323;
@@ -38,7 +40,7 @@
 
 .left {
   flex: 55%;
-  margin-right: 3rem;
+  margin-right: 2rem;
 }
 
 .right {
@@ -64,11 +66,4 @@
   font-size: 1.2rem;
   text-transform: uppercase;
   cursor: pointer;
-}
-
-.container.open {
-  display: flex;
-  align-self: center;
-  display: flex;
-
 }

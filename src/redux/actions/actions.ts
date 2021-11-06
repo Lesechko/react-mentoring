@@ -4,7 +4,7 @@ import { ActionType } from '../action-type/actionType'
 
 export interface AddMovieAction {
   type: ActionType.ADD_MOVIE
-  payload: IMovie
+  payload: IMovie[]
 }
 
 export interface SetMoviesAction {
@@ -12,12 +12,12 @@ export interface SetMoviesAction {
   payload: IMovie[]
 }
 
-export interface SetActiveMovie {
+export interface SetActiveMovieAction {
   type: ActionType.SET_ACTIVE_MOVIE
   payload: number
 }
 
-export interface SortMovies {
+export interface SortMoviesAction {
   type: ActionType.SORT_MOVIES
   payload: {
     id: number
@@ -25,14 +25,25 @@ export interface SortMovies {
   }
 }
 
-export interface FilterMovies {
+export interface FilterMoviesAction {
   type: ActionType.FILTER_MOVIES
   payload: any
+}
+
+export interface DeleteMovieAction {
+  type: ActionType.DELETE_MOVIE
+  payload: IMovie[]
+}
+export interface EditMovieAction {
+  type: ActionType.EDIT_MOVIE
+  payload: IMovie
 }
 
 export type Action =
   | AddMovieAction
   | SetMoviesAction
-  | SetActiveMovie
-  | SortMovies
-  | FilterMovies
+  | DeleteMovieAction
+  | SetActiveMovieAction
+  | SortMoviesAction
+  | FilterMoviesAction
+  | EditMovieAction
