@@ -1,5 +1,4 @@
 import {
-  MouseEventHandler,
   ReactElement,
   useEffect,
   useRef,

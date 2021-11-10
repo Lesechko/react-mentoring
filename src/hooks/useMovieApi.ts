@@ -7,6 +7,7 @@ import {
   setMovies,
   deleteMovie,
   editMovie,
+  getMovieById,
 } from '../redux/action-creators/actionCreators'
 import { IMovieForm } from '../components/common/modal/Modal'
 
@@ -20,6 +21,7 @@ enum QueryType {
   ADD = 'ADD',
   EDIT = 'EDIT',
   DELETE = 'DELETE',
+  GET_BY_ID = 'GET_BY_ID',
 }
 
 const apiDispatcher = {
@@ -27,6 +29,7 @@ const apiDispatcher = {
   [QueryType.ADD]: addMovie,
   [QueryType.DELETE]: deleteMovie,
   [QueryType.EDIT]: editMovie,
+  [QueryType.GET_BY_ID]: getMovieById,
 }
 
 const useMovieApi = (): UseMovieApi => {
@@ -40,9 +43,9 @@ const useMovieApi = (): UseMovieApi => {
       dispatch(apiDispatcher[queryType.current](response.data))
   }, [response])
 
-  const getMovies = () => {
+  const getMovies = (query: string) => {
     queryType.current = QueryType.GET
-    doFetch()
+    query ? doFetch({}, query) : doFetch()
   }
 
   const addMovie = (movie: IMovieForm) => {
@@ -60,11 +63,17 @@ const useMovieApi = (): UseMovieApi => {
     doFetch({ method: 'DELETE' }, String(id))
   }
 
+  const getMovieById = (id: number) => {
+    queryType.current = QueryType.GET_BY_ID
+    doFetch({}, String(id))
+  }
+
   const action = {
     [QueryType.GET]: getMovies,
     [QueryType.ADD]: addMovie,
     [QueryType.EDIT]: editMovie,
     [QueryType.DELETE]: deleteMovie,
+    [QueryType.GET_BY_ID]: getMovieById,
   }
 
   return [response, action]

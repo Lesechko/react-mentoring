@@ -8,10 +8,11 @@ type IUseFetch = [
 const BASE_URL = 'http://localhost:4000/'
 
 const useFetch = (url: string): IUseFetch => {
+  const initialOptions = { url: `${BASE_URL}${url}` }
   const [isLoading, setIsLoading] = useState(false)
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)
-  const [options, setOptions] = useState({ url: `${BASE_URL}${url}` })
+  const [options, setOptions] = useState(initialOptions)
 
   useEffect(() => {
     setOptions((options) => ({ ...options }))
@@ -24,10 +25,15 @@ const useFetch = (url: string): IUseFetch => {
         .catch((err) => {
           setError(err.response.data.message)
         })
-        .finally(() => setIsLoading(false))
+        .finally(() => {
+          setIsLoading(false)
+          setOptions(initialOptions)
+        })
   }, [isLoading])
 
   const doFetch = useCallback((addedOptions = {}, query = null) => {
+    console.log(query)
+
     query && (addedOptions.url = `${options.url}/${query}`)
     setOptions((prevOptions) => ({ ...prevOptions, ...addedOptions }))
     setIsLoading(true)

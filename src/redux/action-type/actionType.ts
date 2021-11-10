@@ -4,6 +4,6 @@ export enum ActionType {
   DELETE_MOVIE,
   EDIT_MOVIE,
   SET_ACTIVE_MOVIE,
-  SORT_MOVIES,
   FILTER_MOVIES,
+  GET_BY_ID
 }

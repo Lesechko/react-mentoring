@@ -1,5 +1,4 @@
 import { IMovie } from '../../components/movieList/movie/Movie'
-import { getSortedMovies } from '../../utils/sortingUtils'
 import { ActionType } from '../action-type/actionType'
 import { Action } from '../actions/actions'
 
@@ -37,24 +36,6 @@ export default function moviesReducer(
         ...state,
         movieList: state.movieList.map((m) =>
           m.id === action.payload.id ? action.payload : m,
-        ),
-      }
-    case ActionType.FILTER_MOVIES:
-      return {
-        ...state,
-        filteredMovie: action.payload
-          ? state.movieList.filter((movie) =>
-              movie.genres.includes(action.payload),
-            )
-          : null,
-      }
-    case ActionType.SORT_MOVIES:
-      return {
-        ...state,
-        movieList: getSortedMovies(
-          state.movieList,
-          action.payload.id,
-          action.payload.direction,
         ),
       }
     default:

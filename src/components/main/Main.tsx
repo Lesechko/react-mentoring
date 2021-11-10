@@ -1,38 +1,24 @@
 import { ReactElement, useMemo, useState } from 'react'
+import { connect } from 'react-redux'
 import { Navbar } from './navbar'
 import MovieList from '../movieList/MovieList'
-import { SortingType } from '../../utils/sortingUtils'
 import { IMovie } from '../movieList/movie/Movie'
-import { connect } from 'react-redux'
-import {
-  filterMovie,
-  setActiveMovie,
-  sortMovies,
-} from '../../redux/action-creators/actionCreators'
 import { GenreItems } from './navbar/genres/GenresConstants'
 import { RootState } from '../../redux/reducers'
+import { useMovieQueryParams } from '../../hooks'
 
 import styles from './Main.module.css'
+import { SortingType } from '../common/sorting/Sorting.constants'
+import { MovieParam } from '../../hooks/useMovieQueryParams'
 interface IMain {
   movies: IMovie[]
-  filteredMovie: IMovie[] | null
   onDelete: (id: number) => void
   onEdit: (id: number) => void
-  showMovieInfo: (id: number) => void
-  filterMovie: (genre: string) => void
-  sortMovies: (id: number, direction: SortingType) => void
 }
 
-const Main = ({
-  movies = [],
-  filteredMovie,
-  showMovieInfo,
-  filterMovie,
-  sortMovies,
-  onDelete,
-  onEdit,
-}: IMain): ReactElement => {
+const Main = ({ movies = [], onDelete, onEdit }: IMain): ReactElement => {
   const [genres, setGenres] = useState(GenreItems)
+  const [, queryService] = useMovieQueryParams()
 
   const onGenreClick = (id: number) => {
     const updateGenres = genres.map((item) => ({
@@ -41,17 +27,17 @@ const Main = ({
     }))
 
     setGenres(updateGenres)
-    filterMovie(updateGenres.find((genre) => genre.active)?.value)
   }
 
-  const onSortChange = (id: number, sortingType: SortingType) => {
-    sortMovies(id, sortingType)
-  }
+  const onMovieSelect = (id: number) =>
+    queryService.addParams({ [MovieParam.Movie]: String(id) })
 
-  const moviesCount = useMemo(
-    () => (filteredMovie ? filteredMovie.length : movies.length),
-    [movies.length, filteredMovie],
-  )
+  const onSortChange = (sortBy: string, sortOrder: SortingType) =>
+    queryService.addParams({
+      [MovieParam.SortBy]: sortBy,
+      [MovieParam.SortOrder]: sortOrder,
+    })
+  const moviesCount = useMemo(() => movies.length, [movies.length])
 
   return (
     <div className={styles.main}>
@@ -67,8 +53,8 @@ const Main = ({
         <MovieList
           onEdit={onEdit}
           onDelete={onDelete}
-          list={filteredMovie || movies}
-          onMovieClick={showMovieInfo}
+          onSelect={onMovieSelect}
+          list={movies}
         ></MovieList>
       </div>
     </div>
@@ -78,17 +64,7 @@ const Main = ({
 function mapStateToProps(state: RootState) {
   return {
     movies: state.movies.movieList,
-    filteredMovie: state.movies.filteredMovie,
   }
 }
 
-function mapDispatchToProps(dispatch: any) {
-  return {
-    showMovieInfo: (id: number) => dispatch(setActiveMovie(id)),
-    filterMovie: (genre: string) => dispatch(filterMovie(genre)),
-    sortMovies: (id: number, direction: SortingType) =>
-      dispatch(sortMovies(id, direction)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps)(Main)

@@ -1,14 +1,15 @@
 import { ReactElement, useEffect, useRef, useState } from 'react'
+import { connect } from 'react-redux'
 import Header from './header/Header'
 import Main from './main/Main'
 import Footer from './footer/Footer'
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
-import { useMovieApi } from '../hooks'
-import { connect } from 'react-redux'
+import { useMovieApi, useMovieQueryParams } from '../hooks'
 import { IMovie } from './movieList/movie/Movie'
 import Modal, { IMovieForm } from './common/modal/Modal'
 import { getNewMovieTemplate } from './movieList/Movie.utils'
 import { RootState } from '../redux/reducers'
+import { MovieInfo } from './movieInfo/MovieInfo'
+import { MovieParam } from '../hooks/useMovieQueryParams'
 
 import styles from './App.module.css'
 
@@ -17,13 +18,19 @@ interface IApp {
 }
 
 function App({ movies }: IApp): ReactElement {
-  const [data, service] = useMovieApi()
+  const [, service] = useMovieApi()
+  const [params, queryService] = useMovieQueryParams()
   const [formOpen, setFormOpen] = useState(false)
   const formInitialData = useRef({})
+  const selectMovie = queryService.getParam(MovieParam.Movie)
 
   useEffect(() => {
     service.GET()
   }, [])
+
+  useEffect(() => {
+    service.GET(params)
+  }, [params])
 
   const onAddMovie = () => {
     formInitialData.current = {}
@@ -48,22 +55,20 @@ function App({ movies }: IApp): ReactElement {
   }
 
   return (
-    <ErrorBoundary>
-      <>
-        <Modal
-          open={formOpen}
-          initialData={formInitialData.current}
-          onClose={() => setFormOpen(false)}
-          onSubmit={onSubmitModal}
-        />
-        <div className={styles.app}>
-          <Header addMovie={onAddMovie} />
-          <div className={styles.separator} />
-          <Main onEdit={onEdit} onDelete={onDelete} />
-          <Footer />
-        </div>
-      </>
-    </ErrorBoundary>
+    <>
+      <Modal
+        open={formOpen}
+        initialData={formInitialData.current}
+        onClose={() => setFormOpen(false)}
+        onSubmit={onSubmitModal}
+      />
+      <div className={styles.app}>
+        {!selectMovie ? <Header addMovie={onAddMovie} /> : <MovieInfo />}
+        <div className={styles.separator} />
+        <Main onEdit={onEdit} onDelete={onDelete} />
+        <Footer />
+      </div>
+    </>
   )
 }
 
