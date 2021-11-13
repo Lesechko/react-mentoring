@@ -1,78 +1,78 @@
 .sorting {
-	display: flex;
-	width: 25%;
-	position: relative;
+  display: flex;
+  width: 25%;
+  position: relative;
 }
 
 .toggleButton {
-	display: none;
+  display: none;
 }
 
 .title {
-	text-transform: uppercase;
-	margin-right: 1rem;
-	font-size: 16px;
-	color: #ffffff;
-	opacity: 0.6;
+  text-transform: uppercase;
+  margin-right: 1rem;
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.6;
 }
 
 .sorting select::-ms-expand {
-	display: none;
+  display: none;
 }
 
 .popup {
-	margin-top: -0.2rem;
-	display: none;
-	padding: 1rem 0;
-	color: #fff;
-	background: #F65261;
-	flex-direction: column;
-	position: absolute;
-	z-index: 1000;
-	left: 3rem;
+  margin-top: -0.2rem;
+  display: none;
+  padding: 1rem 0;
+  color: #fff;
+  background: #f65261;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1000;
+  left: 3rem;
 }
 
 .popup .item {
-	padding: 0.3rem 3rem 0.3rem 0.5rem;
-	text-transform: uppercase;
-	font-size: 1rem;
-	cursor: pointer;
+  padding: 0.3rem 3rem 0.3rem 0.5rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .popup .item:hover {
-	background: rgb(254, 183, 183);
+  background: rgb(254, 183, 183);
 }
 
 .popup.visible {
-	display: flex;
+  display: flex;
 }
 
 .activeElement {
-	font-weight: 500;
-	font-size: 16px;
-	letter-spacing: 0.888889px;
-	text-transform: uppercase;
-	cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.888889px;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .toggleBtn {
-	margin-top: 0.2rem;
-	margin-left: 0.6rem;
-	width: 0;
-	height: 0;
-	cursor: pointer;
+  margin-top: 0.2rem;
+  margin-left: 0.6rem;
+  width: 0;
+  height: 0;
+  cursor: pointer;
 }
 
 .arrow-up {
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
 
-	border-bottom: 7px solid #f00;
+  border-bottom: 7px solid #f00;
 }
 
 .arrow-down {
-	border-left: 7px solid transparent;
-	border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
 
-	border-top: 7px solid #f00;
+  border-top: 7px solid #f00;
 }

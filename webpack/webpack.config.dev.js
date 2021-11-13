@@ -7,6 +7,10 @@ module.exports = merge(commonConfig, {
   output: {
     path: path.resolve(process.cwd(), 'dist'),
     filename: '[name].js',
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   module: {
     rules: [

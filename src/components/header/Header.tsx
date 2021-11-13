@@ -2,37 +2,22 @@ import { ReactElement } from 'react'
 import { Button, BUTTON_STYLE } from '../common/button'
 import { Logo } from '../common/logo'
 import { Search } from '../common/search'
-import { IMovie } from '../movieList/movie/Movie'
-import { MovieInfo } from '../movieInfo/MovieInfo'
 import { connect } from 'react-redux'
 import { setActiveMovie } from '../../redux/action-creators/actionCreators'
 import { RootState } from '../../redux/reducers'
 
 import styles from './Header.module.css'
+import { useSearchParams } from 'react-router-dom'
 
 interface IHeader {
-  activeMovie: IMovie
   addMovie: () => void
-  setActiveMovie: (id: number | null) => void
 }
 
-const Header = ({
-  activeMovie,
-  addMovie,
-  setActiveMovie,
-}: IHeader): ReactElement => {
-  const onSearch = (searchTxt: string) => {
-    console.log(searchTxt)
-  }
+const Header = ({ addMovie }: IHeader): ReactElement => {
+  const [params] = useSearchParams()
+  const searchValue = params.get('search') || ''
 
-  return activeMovie ? (
-    <>
-      <MovieInfo
-        movie={activeMovie}
-        onClose={() => setActiveMovie(null)}
-      ></MovieInfo>
-    </>
-  ) : (
+  return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <div className={styles.top}>
@@ -44,9 +29,9 @@ const Header = ({
         <div className={styles.content}>
           <div className={styles.title}>Find your movie</div>
           <Search
+            value={searchValue}
             placeholder="What do you want to watch ?"
             actionName="Search"
-            onSearch={onSearch}
           />
         </div>
       </div>

@@ -17,7 +17,7 @@ export interface IMovie {
 
 export interface IMovieProps {
   movie: IMovie
-  onClick: (movieId: number) => void
+  onClick: () => void
 }
 
 const Movie = ({ movie, onClick }: IMovieProps): ReactElement => {
@@ -27,11 +27,7 @@ const Movie = ({ movie, onClick }: IMovieProps): ReactElement => {
   )
 
   return (
-    <div
-      data-movie={movie.id}
-      className={styles.movie}
-      onClick={() => onClick(movie.id)}
-    >
+    <div data-movie={movie.id} className={styles.movie} onClick={onClick}>
       <div className={styles.imgWrapper}>
         <img
           src={movie.poster_path}

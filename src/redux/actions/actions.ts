@@ -1,5 +1,4 @@
 import { IMovie } from '../../components/movieList/movie/Movie'
-import { SortingType } from '../../utils/sortingUtils'
 import { ActionType } from '../action-type/actionType'
 
 export interface AddMovieAction {
@@ -17,14 +16,6 @@ export interface SetActiveMovieAction {
   payload: number
 }
 
-export interface SortMoviesAction {
-  type: ActionType.SORT_MOVIES
-  payload: {
-    id: number
-    direction: SortingType
-  }
-}
-
 export interface FilterMoviesAction {
   type: ActionType.FILTER_MOVIES
   payload: any
@@ -39,11 +30,16 @@ export interface EditMovieAction {
   payload: IMovie
 }
 
+export interface GetMovieByIdAction {
+  type: ActionType.GET_BY_ID
+  payload: IMovie
+}
+
 export type Action =
   | AddMovieAction
   | SetMoviesAction
   | DeleteMovieAction
   | SetActiveMovieAction
-  | SortMoviesAction
   | FilterMoviesAction
   | EditMovieAction
+  | GetMovieByIdAction

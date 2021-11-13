@@ -1,20 +1,26 @@
-import { Button, BUTTON_STYLE } from '../button'
 import { ReactElement, useState } from 'react'
+import { Button, BUTTON_STYLE } from '../button'
 
 import styles from './Search.css'
+import { useMovieQueryParams } from '../../../hooks'
+import { MovieParam } from '../../../hooks/useMovieQueryParams'
 
 interface ISearch {
-  onSearch(string: string): void
   placeholder: string
   actionName: string
+  value: string
 }
 
 const Search = ({
-  onSearch,
   placeholder,
   actionName,
+  value: initialValue = '',
 }: ISearch): ReactElement => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(initialValue)
+  const [_, queryService] = useMovieQueryParams()
+  const onActionClick = () => {
+    queryService.addParams({ [MovieParam.Search] : value })
+  }
 
   return (
     <div className={styles.search}>
@@ -24,7 +30,7 @@ const Search = ({
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Button style={BUTTON_STYLE.COMPLETE} onClick={() => onSearch(value)}>
+      <Button style={BUTTON_STYLE.COMPLETE} onClick={onActionClick}>
         {actionName}
       </Button>
     </div>

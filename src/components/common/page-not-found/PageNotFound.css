@@ -1,0 +1,26 @@
+.wrapper {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.txt {
+  padding: 7rem 10rem;
+  background: rgb(233, 83, 83);
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.action {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+}

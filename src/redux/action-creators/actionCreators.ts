@@ -1,14 +1,13 @@
 import { IMovie } from '../../components/movieList/movie/Movie'
-import { SortingType } from '../../utils/sortingUtils'
 import { ActionType } from '../action-type/actionType'
 import {
   SetMoviesAction,
   SetActiveMovieAction,
   AddMovieAction,
   FilterMoviesAction,
-  SortMoviesAction,
   DeleteMovieAction,
   EditMovieAction,
+  GetMovieByIdAction
 } from '../actions/actions'
 
 export function setMovies(payload: IMovie[]): SetMoviesAction {
@@ -27,13 +26,6 @@ export function filterMovie(genre: string): FilterMoviesAction {
   return { type: ActionType.FILTER_MOVIES, payload: genre }
 }
 
-export function sortMovies(
-  id: number,
-  direction: SortingType,
-): SortMoviesAction {
-  return { type: ActionType.SORT_MOVIES, payload: { id, direction } }
-}
-
 export function deleteMovie(payload: IMovie[]): DeleteMovieAction {
   return { type: ActionType.DELETE_MOVIE, payload }
 }
@@ -41,3 +33,9 @@ export function deleteMovie(payload: IMovie[]): DeleteMovieAction {
 export function editMovie(payload: IMovie): EditMovieAction {
   return { type: ActionType.EDIT_MOVIE, payload }
 }
+
+export function getMovieById(payload: IMovie): GetMovieByIdAction {
+  return { type: ActionType.GET_BY_ID, payload }
+}
+
+
