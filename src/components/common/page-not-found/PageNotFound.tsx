@@ -4,7 +4,7 @@ import styles from './PageNotFound.css'
 
 const PageNotFound = () => (
   <div className={styles.wrapper}>
-    <h1 className={styles.txt}>404, page not found....</h1>
+    <h1 className={styles.txt} data-testid="message">404, page not found....</h1>
     <div className={styles.action}>
       <Button style={BUTTON_STYLE.COMPLETE}>
         <Link className={styles.link} to={'/search'}>

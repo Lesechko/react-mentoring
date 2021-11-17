@@ -18,8 +18,9 @@ export const ContextMenu = ({ data, position, opened, id }: IContextMenu) => {
       <div
         className={styles.wrapper}
         style={{ top: position.y, left: position.x }}
+        data-testid = 'context'
       >
-        <ul>
+        <ul data-testid = 'list'>
           {data.map((item, idx) => (
             <li
               onClick={() => item.onClick(id)}

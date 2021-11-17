@@ -32,8 +32,6 @@ const useFetch = (url: string): IUseFetch => {
   }, [isLoading])
 
   const doFetch = useCallback((addedOptions = {}, query = null) => {
-    console.log(query)
-
     query && (addedOptions.url = `${options.url}/${query}`)
     setOptions((prevOptions) => ({ ...prevOptions, ...addedOptions }))
     setIsLoading(true)

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1637138043553" clover="3.2.0">
+  <project timestamp="1637138043555" name="All files">
+    <metrics statements="166" coveredstatements="118" conditionals="78" coveredconditionals="49" methods="65" coveredmethods="44" elements="309" coveredelements="211" complexity="0" loc="166" ncloc="166" packages="17" files="32" classes="32"/>
+    <package name="components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="App.constants.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/App.constants.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.button">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="Button.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/button/Button.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+      </file>
+      <file name="buttonTypes.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/button/buttonTypes.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/button/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.context-menu">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="ContextMenu.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/context-menu/ContextMenu.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.common.input">
+      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="Input.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/input/Input.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/input/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.logo">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Logo.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/logo/Logo.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/logo/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.modal">
+      <metrics statements="20" coveredstatements="18" conditionals="22" coveredconditionals="20" methods="9" coveredmethods="8"/>
+      <file name="Modal.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/modal/Modal.tsx">
+        <metrics statements="11" coveredstatements="9" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="3"/>
+        <line num="30" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+      </file>
+      <file name="Modal.utils.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/modal/Modal.utils.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="17" coveredconditionals="15" methods="5" coveredmethods="5"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="25" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="36" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="15" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/modal/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.page-not-found">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PageNotFound.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/page-not-found/PageNotFound.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/page-not-found/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.search">
+      <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Search.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/search/Search.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/search/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.select">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="Select.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/select/Select.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="18" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/select/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.common.sorting">
+      <metrics statements="30" coveredstatements="21" conditionals="13" coveredconditionals="7" methods="11" coveredmethods="5"/>
+      <file name="Sorting.constants.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/sorting/Sorting.constants.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="Sorting.tsx" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/sorting/Sorting.tsx">
+        <metrics statements="29" coveredstatements="20" conditionals="13" coveredconditionals="7" methods="11" coveredmethods="5"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="20" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="23" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="6" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="46" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="6" type="stmt"/>
+        <line num="68" count="15" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/common/sorting/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="components.main.navbar.genres">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="GenresConstants.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/components/main/navbar/genres/GenresConstants.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="69" coveredstatements="36" conditionals="23" coveredconditionals="9" methods="20" coveredmethods="9"/>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/hooks/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="useFetch.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/hooks/useFetch.ts">
+        <metrics statements="19" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="5"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="8" type="stmt"/>
+      </file>
+      <file name="useMovieApi.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/hooks/useMovieApi.ts">
+        <metrics statements="24" coveredstatements="2" conditionals="5" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+      </file>
+      <file name="useMovieQueryParams.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/hooks/useMovieQueryParams.ts">
+        <metrics statements="26" coveredstatements="19" conditionals="12" coveredconditionals="4" methods="5" coveredmethods="4"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
+        <line num="21" count="14" type="stmt"/>
+        <line num="22" count="14" type="stmt"/>
+        <line num="23" count="14" type="stmt"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="26" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="35" count="14" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="51" count="14" type="stmt"/>
+        <line num="52" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="14" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="14" type="stmt"/>
+        <line num="66" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="redux.action-creators">
+      <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+      <file name="actionCreators.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/redux/action-creators/actionCreators.ts">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="redux.action-type">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="actionType.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/redux/action-type/actionType.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="redux.reducers">
+      <metrics statements="8" coveredstatements="7" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <file name="moviesReducer.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/redux/reducers/moviesReducer.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="19" count="5" type="cond" truecount="5" falsecount="1"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="index.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/utils/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="url.utils.ts" path="/Users/alexey/Desktop/EPAM/1.1_Mentoring/React/mentoring_4/src/utils/url.utils.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="14" type="stmt"/>
+        <line num="3" count="14" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+        <line num="5" count="70" type="stmt"/>
+        <line num="7" count="15" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
