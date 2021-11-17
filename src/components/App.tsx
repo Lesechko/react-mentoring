@@ -62,7 +62,7 @@ function App({ movies }: IApp): ReactElement {
         onClose={() => setFormOpen(false)}
         onSubmit={onSubmitModal}
       />
-      <div className={styles.app}>
+      <div className={styles.app} id = 'container'>
         {!selectMovie ? <Header addMovie={onAddMovie} /> : <MovieInfo />}
         <div className={styles.separator} />
         <Main onEdit={onEdit} onDelete={onDelete} />

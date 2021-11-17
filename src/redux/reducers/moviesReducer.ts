@@ -4,13 +4,11 @@ import { Action } from '../actions/actions'
 
 export interface IMovieState {
   movieList: IMovie[]
-  filteredMovie: IMovie[] | null
   activeMovie: IMovie | null
 }
 
 const initialState: IMovieState = {
   movieList: [],
-  filteredMovie: null,
   activeMovie: null,
 }
 

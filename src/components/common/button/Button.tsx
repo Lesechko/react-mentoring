@@ -17,7 +17,7 @@ const Button = ({
 }: IButton): ReactElement => {
   const className = `${styles.btn} ${styles[`btn-${style}`]}`
   return (
-    <button className={className} onClick={onClick} type={type}>
+    <button className={className} onClick={onClick} type={type} data-testid = 'button'>
       {children}
     </button>
   )

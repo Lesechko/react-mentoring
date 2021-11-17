@@ -19,7 +19,7 @@ const Search = ({
   const [value, setValue] = useState(initialValue)
   const [_, queryService] = useMovieQueryParams()
   const onActionClick = () => {
-    queryService.addParams({ [MovieParam.Search] : value })
+    queryService.addParams({ [MovieParam.Search]: value })
   }
 
   return (
@@ -29,6 +29,8 @@ const Search = ({
         className={styles.input}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        data-testid="input"
+        id="input"
       />
       <Button style={BUTTON_STYLE.COMPLETE} onClick={onActionClick}>
         {actionName}

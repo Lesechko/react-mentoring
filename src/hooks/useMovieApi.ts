@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { dataURL } from '../components/App.constants'
-import { useFetch } from './'
+import useFetch from './useFetch'
 import { useDispatch } from 'react-redux'
 import {
   addMovie,

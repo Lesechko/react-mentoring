@@ -22,7 +22,7 @@ export const getValidation = () =>
       .required('Required'),
   })
 
-export const getInitialMovieForm = (movie: any): IMovieForm => {
+export const getInitialMovieForm = (movie: any = {}): IMovieForm => {
   const movieForm: IMovieForm = {
     title: movie?.title || '',
     poster_path: movie?.poster_path || '',
@@ -30,10 +30,10 @@ export const getInitialMovieForm = (movie: any): IMovieForm => {
     release_date: movie?.release_date || '',
     vote_average: movie?.vote_average || 0,
     runtime: movie?.runtime || 0,
-    overview: movie.overview || '',
+    overview: movie?.overview || '',
   }
 
-  movie.id && (movieForm.id = movie.id)
+  movie?.id && (movieForm.id = movie.id)
 
   return movieForm
 }

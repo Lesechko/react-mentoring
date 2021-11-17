@@ -57,10 +57,10 @@ const Sorting = ({
 
   return (
     sortingItem.length && (
-      <div className={styles.sorting}>
-        <span className={styles.title}>sort by</span>
+      <div className={styles.sorting} data-testid = 'sorting'>
+        <span className={styles.title} data-testid = 'sort_by' >sort by</span>
         <span>
-          <span className={styles.activeElement} onClick={sortingToggle}>
+          <span className={styles.activeElement} onClick={sortingToggle} data-testid = 'title'>
             {activeElement.title}
           </span>
           <span className={popupClassName}>
@@ -78,6 +78,7 @@ const Sorting = ({
         <span
           className={sortingTypeBtnClassName}
           onClick={onSortTypeChange}
+          data-testid = 'sort'
         ></span>
       </div>
     )

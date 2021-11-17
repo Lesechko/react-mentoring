@@ -50,12 +50,13 @@ const Modal = ({ open, initialData = null, onClose, onSubmit }: IModal) => {
         initialValues={initialForm}
         validationSchema={validatation}
         onSubmit={submitForm}
+        data-testid = 'formik'
       >
         {({ resetForm }) => (
-          <div className={styles.container}>
+          <div className={styles.container}  data-testid = 'form'>
             <Form>
               <div className={styles.modal}>
-                <div className={styles.close} onClick={onClose}>
+                <div className={styles.close} onClick={onClose} data-testid = 'close'>
                   X
                 </div>
                 <div className={styles.title}>ADD MOVIE</div>

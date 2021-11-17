@@ -27,7 +27,7 @@ const Movie = ({ movie, onClick }: IMovieProps): ReactElement => {
   )
 
   return (
-    <div data-movie={movie.id} className={styles.movie} onClick={onClick}>
+    <div data-movie={movie.id} className={styles.movie} onClick={onClick} id='movie'>
       <div className={styles.imgWrapper}>
         <img
           src={movie.poster_path}
